@@ -35,11 +35,15 @@ public class Renderer {
 		float y = sprite.getY();
 		float w = sprite.getWidth();
 		float h = sprite.getHeight();
-		int spriteId = sprite.getSpriteId();
+		int spriteId = sprite.getFrame();
 		Texture texture = sprite.getTexture();
 		
 		float nbSpriteW = texture.getWidth() / sprite.getSpriteWidth();
 		float nbSpriteH = texture.getHeight() / sprite.getSpriteHeight();
+		
+		if(sprite.getAnimation() != null) {
+			spriteId += sprite.getAnimation().getFrame();
+		}
 		
 		int posX = (int) (spriteId % nbSpriteW);
 		int posY = (int) (spriteId / nbSpriteH);

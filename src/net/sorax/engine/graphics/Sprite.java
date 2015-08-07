@@ -2,26 +2,41 @@ package net.sorax.engine.graphics;
 
 public class Sprite extends Image{
 	
-	protected int spriteId;
+	protected int frame;
 	protected float spriteW, spriteH;
 	
-	public Sprite(Texture texture, float x, float y, float width, float height, float spriteW, float spriteH, int spriteId) {
+	protected Animation anim;
+	
+	public Sprite(Texture texture, float x, float y, float width, float height, float spriteW, float spriteH, int frame) {
 		super(texture, x, y, width, height);
-		this.spriteId = spriteId;
+		this.frame = frame;
 		this.spriteW = spriteW;
 		this.spriteH = spriteH;
 	}
 	
-	public Sprite(String texture, float x, float y, float width, float height,  float spriteW, float spriteH, int spriteId) {
-		this(Texture.loadTexture(texture), x, y, width, height, spriteW, spriteH, spriteId);
+	public void playAnimation(Animation anim) {
+		this.anim = anim;
+		this.anim.play();
+	}
+	
+	public void stopAnimation() {
+		if(this.anim != null) this.anim.stop();
+	}
+	
+	public Sprite(String texture, float x, float y, float width, float height,  float spriteW, float spriteH, int frame) {
+		this(Texture.loadTexture(texture), x, y, width, height, spriteW, spriteH, frame);
 	}
 	
 	public void render() {
 		Renderer.renderSprite(this);
 	}
 	
-	public int getSpriteId() {
-		return this.spriteId;
+	public void setFrame(int frame) {
+		this.frame = frame;
+	}
+	
+	public int getFrame() {
+		return this.frame;
 	}
 	
 	public float getSpriteWidth() {
@@ -30,5 +45,9 @@ public class Sprite extends Image{
 	
 	public float getSpriteHeight() {
 		return this.spriteH;
+	}
+	
+	public Animation getAnimation() {
+		return this.anim;
 	}
 }
