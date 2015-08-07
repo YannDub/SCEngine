@@ -4,6 +4,7 @@ public class Sprite extends Image{
 	
 	protected int frame;
 	protected float spriteW, spriteH;
+	protected boolean flip = false;
 	
 	protected Animation anim;
 	
@@ -14,6 +15,10 @@ public class Sprite extends Image{
 		this.spriteH = spriteH;
 	}
 	
+	public Sprite(String texture, float x, float y, float width, float height,  float spriteW, float spriteH, int frame) {
+		this(Texture.loadTexture(texture), x, y, width, height, spriteW, spriteH, frame);
+	}
+
 	public void playAnimation(Animation anim) {
 		this.anim = anim;
 		this.anim.play();
@@ -21,10 +26,6 @@ public class Sprite extends Image{
 	
 	public void stopAnimation() {
 		if(this.anim != null) this.anim.stop();
-	}
-	
-	public Sprite(String texture, float x, float y, float width, float height,  float spriteW, float spriteH, int frame) {
-		this(Texture.loadTexture(texture), x, y, width, height, spriteW, spriteH, frame);
 	}
 	
 	public void render() {

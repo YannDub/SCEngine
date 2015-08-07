@@ -3,6 +3,7 @@ package net.sorax.engine;
 import net.sorax.engine.graphics.Texture;
 
 import org.lwjgl.LWJGLException;
+import org.lwjgl.openal.AL;
 import org.lwjgl.opengl.Display;
 import org.lwjgl.opengl.DisplayMode;
 import static org.lwjgl.opengl.GL11.*;
@@ -31,6 +32,7 @@ public class Game {
 			Display.sync(60);
 			Display.setResizable(true);
 			Display.create();
+			AL.create();
 			this.run();
 		} catch (LWJGLException e) {
 			e.printStackTrace();
@@ -38,9 +40,10 @@ public class Game {
 		return;
 	}
 	
-	private void stop() {
+	protected void stop() {
 		Texture.clearAllTexture();
 		Display.destroy();
+		AL.destroy();
 	}
 	
 	private void initGL() {
