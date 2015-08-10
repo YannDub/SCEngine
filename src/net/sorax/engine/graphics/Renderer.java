@@ -70,7 +70,21 @@ public class Renderer {
 		Texture texture = font.getTexture();
 		
 		texture.bind();
-		
+		glBegin(GL_QUADS);
+			for(int i = 0; i < s.length(); i++) {
+				int asciiCode = s.charAt(i);
+				
+				float cellSize = 1.0f / gridSize;
+				
+				float cellW = ((int)(asciiCode % gridSize)) * cellSize;
+				float cellH = ((int)(asciiCode / gridSize)) * cellSize;
+				
+				glTexCoord2f(cellW, cellH); glVertex2f(x + i * charWidth, y);
+				glTexCoord2f(cellW + cellSize, cellH); glVertex2f(x + i * charWidth + charWidth, y);
+				glTexCoord2f(cellW + cellSize, cellH + cellSize); glVertex2f(x + i * charWidth + charWidth, y + charHeight);
+				glTexCoord2f(cellW, cellH + cellSize); glVertex2f(x + i * charWidth, y + charHeight);
+			}
+		glEnd();
 		texture.unbind();
 	}
 }
