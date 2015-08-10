@@ -30,11 +30,12 @@ public class Renderer {
 		texture.unbind();
 	}
 	
-	public static void renderSprite(Sprite sprite, float angle) {
+	public static void renderSprite(Sprite sprite) {
 		float x = sprite.getX();
 		float y = sprite.getY();
 		float w = sprite.getWidth();
 		float h = sprite.getHeight();
+		float angle = sprite.getAngle();
 		int spriteId = sprite.getFrame();
 		Texture texture = sprite.getTexture();
 		

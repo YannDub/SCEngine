@@ -35,7 +35,7 @@ public class Sprite extends Image{
 	}
 	
 	public void render() {
-		Renderer.renderSprite(this, angle);
+		Renderer.renderSprite(this);
 	}
 	
 	public void setFrame(int frame) {
@@ -56,5 +56,9 @@ public class Sprite extends Image{
 	
 	public Animation getAnimation() {
 		return this.anim;
+	}
+	
+	public float getAngle() {
+		return this.angle;
 	}
 }
