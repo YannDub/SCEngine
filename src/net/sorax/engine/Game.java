@@ -1,12 +1,13 @@
 package net.sorax.engine;
 
+import static org.lwjgl.opengl.GL11.*;
 import net.sorax.engine.graphics.Texture;
+import net.sorax.engine.gui.Scene;
 
 import org.lwjgl.LWJGLException;
 import org.lwjgl.openal.AL;
 import org.lwjgl.opengl.Display;
 import org.lwjgl.opengl.DisplayMode;
-import static org.lwjgl.opengl.GL11.*;
 
 public class Game {
 	
@@ -15,6 +16,8 @@ public class Game {
 	protected String title;
 	protected boolean showFPS = false;
 	
+	protected Scene scene;
+	
 	public Game() {
 		this.width = 800;
 		this.height = 400;
@@ -22,7 +25,12 @@ public class Game {
 	}
 	
 	protected void init() {
-		
+		if(scene != null) this.scene.init();
+	}
+	
+	public void setScene(Scene scene) {
+		if(this.scene != null) scene.dispose();
+		this.scene = scene;
 	}
 	
 	protected void start() {
@@ -42,6 +50,7 @@ public class Game {
 	
 	protected void stop() {
 		Texture.clearAllTexture();
+		if(scene != null) this.scene.dispose();
 		Display.destroy();
 		AL.destroy();
 	}
@@ -98,9 +107,11 @@ public class Game {
 	protected void render() {
 		this.initGL();
 		glClear(GL_COLOR_BUFFER_BIT);
+		
+		if(scene != null) scene.render();
 	}
 	
 	protected void update() {
-		
+		if(scene != null) scene.update();
 	}
 }
