@@ -2,17 +2,18 @@ package net.sorax.engine.graphics;
 
 public class Animation {
 	
-	private int length, speed, frame;
+	private int length, speed, frame, beginFrame;
 	private boolean loop;
 	private boolean play;
 	
 	private int time = 0;
 	
-	public Animation(int length, int speed, boolean loop) {
-		this.length = length;
+	public Animation(int beginFrame, int length, int speed, boolean loop) {
+		this.length = length + beginFrame;
 		this.speed = speed;
 		this.loop = loop;
-		this.frame = 0;
+		this.beginFrame = beginFrame;
+		this.frame = beginFrame;
 		this.play = false;
 	}
 	
@@ -26,7 +27,7 @@ public class Animation {
 	
 	public void stop() {
 		this.play = false;
-		this.frame = 0;
+		this.frame = this.beginFrame;
 	}
 	
 	public void update() {
@@ -35,7 +36,7 @@ public class Animation {
 			if(time > speed) {
 				frame++;
 				if(frame >= length) {
-					if(loop) frame = 0;
+					if(loop) frame = this.beginFrame;
 					else frame = length - 1;
 				}
 				time = 0;

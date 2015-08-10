@@ -42,7 +42,7 @@ public class Renderer {
 		float nbSpriteH = texture.getHeight() / sprite.getSpriteHeight();
 		
 		if(sprite.getAnimation() != null) {
-			spriteId += sprite.getAnimation().getFrame();
+			spriteId = sprite.getAnimation().getFrame();
 		}
 		
 		int posX = (int) (spriteId % nbSpriteW);
