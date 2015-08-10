@@ -1,6 +1,10 @@
 package net.sorax.engine.gui;
 
-
+/**
+ * Scene interface, it's like game state
+ * @author Yann (Sorax) Dubois
+ *
+ */
 public interface Scene {
 	
 	public void init();

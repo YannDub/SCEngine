@@ -14,6 +14,11 @@ import javax.imageio.ImageIO;
 
 import org.lwjgl.BufferUtils;
 
+/**
+ * 2D Texture loader
+ * @author Yann (Sorax) Dubois
+ *
+ */
 public class Texture {
 	
 	private int width, height, id;
@@ -21,6 +26,14 @@ public class Texture {
 	
 	private static final Map<String, Texture> cache = new HashMap<String, Texture>();
 	
+	/**
+	 * Constructor of a new texture
+	 * @param width the horizontal size of this texture
+	 * @param height the vertical size of this texture
+	 * @param id The identifier of this texture
+ 	 * @param resize_factor_w When a texture is not power of two, whe resize the width, this is the factor
+	 * @param resize_factor_h When a texture is not power of two, whe resize the height, this is the factor
+	 */
 	public Texture(int width, int height, int id, float resize_factor_w, float resize_factor_h) {
 		this.width = width;
 		this.height = height;
@@ -29,6 +42,11 @@ public class Texture {
 		this.resize_factor_h = resize_factor_h;
 	}
 	
+	/**
+	 * Load a texture and create them for the game
+	 * @param path the path on the compute where the texture is
+	 * @return A new texture ready for the game
+	 */
 	public static Texture loadTexture(String path) {
 		if(cache.containsKey(path)) {
 			return cache.get(path);
@@ -103,6 +121,11 @@ public class Texture {
 //		}
 //	}
 	
+	/**
+	 * Check if a number is a power of two
+	 * @param n the number
+	 * @return <code>True</code> if the number is a power of two, else <code>False</code>
+	 */
 	private static boolean isPowerOfTwo(int n) {
 		while((n & 1) == 0) {
 			n = n >> 1;
@@ -111,30 +134,55 @@ public class Texture {
 		return true;
 	}
 	
+	/**
+	 * Get the width of this texture
+	 * @return the width of this texture
+	 */
 	public int getWidth() {
 		return this.width;
 	}
 	
+	/**
+	 * Get the height of this texture
+	 * @return the height of this texture
+	 */
 	public int getHeight() {
 		return this.height;
 	}
 	
+	/**
+	 * Get the resize factor width of this texture
+	 * @return the resize factor width of this texture
+	 */
 	public float getResizeFactorW() {
 		return this.resize_factor_w;
 	}
 	
+	/**
+	 * Get the resize factor height of this texture
+	 * @return the resize factor height of this texture
+	 */
 	public float getResizeFactorH() {
 		return this.resize_factor_h;
 	}
 	
+	/**
+	 * The texture is ready to draw on display
+	 */
 	public void bind() {
 		glBindTexture(GL_TEXTURE_2D, id);
 	}
 	
+	/**
+	 * The texture is not ready to draw on display
+	 */
 	public void unbind() {
 		glBindTexture(GL_TEXTURE_2D, 0);
 	}
 	
+	/**
+	 * clean the texture cache
+	 */
 	public static void clearAllTexture() {
 		for(Texture tex : cache.values()) {
 			IntBuffer buffer = BufferUtils.createIntBuffer(1);

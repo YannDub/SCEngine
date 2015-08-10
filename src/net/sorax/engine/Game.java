@@ -9,6 +9,12 @@ import org.lwjgl.openal.AL;
 import org.lwjgl.opengl.Display;
 import org.lwjgl.opengl.DisplayMode;
 
+/**
+ * The game instance
+ * @author Yann (Sorax) Dubois
+ *
+ */
+
 public class Game {
 	
 	protected int width, height;
@@ -18,21 +24,34 @@ public class Game {
 	
 	protected Scene scene;
 	
+	/**
+	 * Constructor to create a new instance of a game
+	 */
 	public Game() {
 		this.width = 800;
 		this.height = 400;
 		this.title = "Test";
 	}
 	
+	/**
+	 * Initialize the game
+	 */
 	protected void init() {
 		if(scene != null) this.scene.init();
 	}
 	
+	/**
+	 * Set a scene to the game, for exemple change a menu scene to a game scene
+	 * @param scene The new scene of the game
+	 */
 	public void setScene(Scene scene) {
 		if(this.scene != null) scene.dispose();
 		this.scene = scene;
 	}
 	
+	/**
+	 * Start the game
+	 */
 	protected void start() {
 		try {
 			Display.setDisplayMode(new DisplayMode(width, height));
@@ -48,6 +67,9 @@ public class Game {
 		return;
 	}
 	
+	/**
+	 * Stop the game
+	 */
 	protected void stop() {
 		Texture.clearAllTexture();
 		if(scene != null) this.scene.dispose();
@@ -55,6 +77,9 @@ public class Game {
 		AL.destroy();
 	}
 	
+	/**
+	 * Initialize opengl for a 2d game
+	 */
 	private void initGL() {
 		glViewport(0, 0, Display.getWidth(), Display.getHeight());
 		glMatrixMode(GL_PROJECTION);
@@ -68,6 +93,9 @@ public class Game {
 		glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
 	}
 	
+	/**
+	 * The game loop
+	 */
 	private void run() {
 		long before = System.nanoTime();
 		double ns = 1000000000.0 / 60.0;
@@ -104,6 +132,9 @@ public class Game {
 		stop();
 	}
 	
+	/**
+	 * The main rendering method
+	 */
 	protected void render() {
 		this.initGL();
 		glClear(GL_COLOR_BUFFER_BIT);
@@ -111,6 +142,9 @@ public class Game {
 		if(scene != null) scene.render();
 	}
 	
+	/**
+	 * The main update method
+	 */
 	protected void update() {
 		if(scene != null) scene.update();
 	}

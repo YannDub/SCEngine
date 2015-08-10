@@ -1,5 +1,10 @@
 package net.sorax.engine.maths;
 
+/**
+ * 2D Vector using float number
+ * @author Yann (Sorax) Dubois
+ *
+ */
 public class Vector2f {
 	
 	public float x, y;

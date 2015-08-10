@@ -1,5 +1,10 @@
 package net.sorax.engine.maths;
 
+/**
+ * 2D Vector using double number
+ * @author Yann (Sorax) Dubois
+ *
+ */
 public class Vector2d {
 	
 	public double x, y;
