@@ -5,6 +5,7 @@ public class Sprite extends Image{
 	protected int frame;
 	protected float spriteW, spriteH;
 	protected boolean flip = false;
+	protected float angle;
 	
 	protected Animation anim;
 	
@@ -13,6 +14,7 @@ public class Sprite extends Image{
 		this.frame = frame;
 		this.spriteW = spriteW;
 		this.spriteH = spriteH;
+		this.angle = 0;
 	}
 	
 	public Sprite(String texture, float x, float y, float width, float height,  float spriteW, float spriteH, int frame) {
@@ -28,8 +30,12 @@ public class Sprite extends Image{
 		if(this.anim != null) this.anim.stop();
 	}
 	
+	public void rotate(float angle) {
+		this.angle = angle;
+	}
+	
 	public void render() {
-		Renderer.renderSprite(this);
+		Renderer.renderSprite(this, angle);
 	}
 	
 	public void setFrame(int frame) {

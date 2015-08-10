@@ -1,6 +1,5 @@
 package net.sorax.engine.gui;
 
-import net.sorax.engine.Game;
 
 public interface Scene {
 	

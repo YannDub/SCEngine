@@ -30,7 +30,7 @@ public class Renderer {
 		texture.unbind();
 	}
 	
-	public static void renderSprite(Sprite sprite) {
+	public static void renderSprite(Sprite sprite, float angle) {
 		float x = sprite.getX();
 		float y = sprite.getY();
 		float w = sprite.getWidth();
@@ -49,12 +49,19 @@ public class Renderer {
 		int posY = (int) (spriteId / nbSpriteH);
 		
 		texture.bind();
+		glPushMatrix();
+		
+		glTranslatef(x + w / 2, y + h / 2, 0);
+		glRotatef(angle, 0, 0, 1);
+		glTranslatef(-x - w / 2, -y - h / 2, 0);
+		
 		glBegin(GL_QUADS);
 			glTexCoord2f(posX / sprite.getSpriteWidth(), posY / sprite.getSpriteHeight()); glVertex2f(x, y);
 			glTexCoord2f((1 + posX) / sprite.getSpriteWidth(), posY / sprite.getSpriteHeight()); glVertex2f(x + w, y);
 			glTexCoord2f((1 + posX) / sprite.getSpriteWidth(), (1 + posY) / sprite.getSpriteHeight()); glVertex2f(x + w, y + h);
 			glTexCoord2f(posX / sprite.getSpriteWidth(), (1 + posY) / sprite.getSpriteHeight()); glVertex2f(x, y + h);
 		glEnd();
+		glPopMatrix();
 		texture.unbind();
 	}
 }
