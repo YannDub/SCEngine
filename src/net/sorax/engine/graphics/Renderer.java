@@ -65,4 +65,12 @@ public class Renderer {
 		glPopMatrix();
 		texture.unbind();
 	}
+	
+	public static void renderString(BitmapFont font, String s, int gridSize, int x, int y, int charWidth, int charHeight) {
+		Texture texture = font.getTexture();
+		
+		texture.bind();
+		
+		texture.unbind();
+	}
 }
