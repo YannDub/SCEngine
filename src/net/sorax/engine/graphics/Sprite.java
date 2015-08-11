@@ -49,6 +49,16 @@ public class Sprite extends Image{
 	}
 	
 	/**
+	 * Change the position of this sprite
+	 * @param x the x coordinate
+	 * @param y the y coordinate
+	 */
+	public void setPosition(float x, float y) {
+		this.x = x;
+		this.y = y;
+	}
+	
+	/**
 	 * play an animation
 	 * @param anim the animation to played
 	 */
