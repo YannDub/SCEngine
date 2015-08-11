@@ -91,8 +91,8 @@ public class Texture {
 		for(int j = 0; j < h; j++) {
 			for(int i = 0; i < w; i++) {
 				int p = 0;
-				if(i + j * w < pixels.length) {					
-					p = pixels[i + j * w];
+				if(j < previousH && i < previousW) { 
+					if(i + j * previousW < pixels.length) p = pixels[i + j * (int)previousW];
 				}
 				buffer.put((byte) ((p >> 16) & 0xFF));
 				buffer.put((byte) ((p >> 8) & 0xFF));
@@ -121,12 +121,6 @@ public class Texture {
 		
 		return tex;
 	}
-	
-//	private static void fill(int[] h_array, int[] s_array) {
-//		for(int i = 0; i < s_array.length; i++) {
-//			h_array[i] = s_array[i];
-//		}
-//	}
 	
 	/**
 	 * Check if a number is a power of two

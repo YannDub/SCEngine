@@ -58,8 +58,6 @@ public class Renderer {
 		float posX = ((int)(spriteId % nbSpriteW)) * cellSizeX;
 		float posY = ((int)(spriteId / nbSpriteH)) * cellSizeY;
 
-		System.out.println("x : " + (posX) + " y : " + (posY));
-		
 		texture.bind();
 		glPushMatrix();
 		
