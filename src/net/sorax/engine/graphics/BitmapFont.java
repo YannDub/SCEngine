@@ -3,16 +3,18 @@ package net.sorax.engine.graphics;
 public class BitmapFont {
 	
 	private Texture texture;
+	private int gridSize;
 	
-	public BitmapFont(Texture texture) {
+	public BitmapFont(Texture texture, int gridSize) {
 		this.texture = texture;
+		this.gridSize = gridSize;
 	}
 	
-	public BitmapFont(String path) {
-		this(Texture.loadTexture(path));
+	public BitmapFont(String path, int gridSize) {
+		this(Texture.loadTexture(path), gridSize);
 	}
 	
-	public void render(String s, int gridSize, int x, int y, int charWidth, int charHeight) {
+	public void render(String s, int x, int y, int charWidth, int charHeight) {
 		Renderer.renderString(this, s, gridSize, x, y, charWidth, charHeight);
 	}
 	
