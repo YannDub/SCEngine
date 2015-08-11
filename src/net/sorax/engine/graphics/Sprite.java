@@ -9,7 +9,6 @@ public class Sprite extends Image{
 	
 	protected int frame;
 	protected float spriteW, spriteH;
-	protected boolean flip = false;
 	protected float angle;
 	
 	protected Animation anim;
