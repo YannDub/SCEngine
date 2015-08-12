@@ -15,6 +15,15 @@ public class Vector2d {
 	 * @param y the y position
 	 */
 	public Vector2d(double x, double y) {
+		this.set(x, y);
+	}
+	
+	/**
+	 * Set the x and y coord of this vector
+	 * @param x the x coord
+	 * @param y the y coord
+	 */
+	public void set(double x, double y) {
 		this.x = x;
 		this.y = y;
 	}

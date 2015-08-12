@@ -15,6 +15,15 @@ public class Vector2f {
 	 * @param y the y position
 	 */
 	public Vector2f(float x, float y) {
+		this.set(x, y);
+	}
+	
+	/**
+	 * Set the x and y coord of this vector
+	 * @param x the x coord
+	 * @param y the y coord
+	 */
+	public void set(float x, float y) {
 		this.x = x;
 		this.y = y;
 	}
