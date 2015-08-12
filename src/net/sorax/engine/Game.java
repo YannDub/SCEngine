@@ -59,7 +59,6 @@ public class Game {
 			Display.sync(60);
 			Display.setResizable(true);
 			Display.create();
-			AL.create();
 			this.run();
 		} catch (LWJGLException e) {
 			e.printStackTrace();
