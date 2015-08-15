@@ -1,8 +1,7 @@
 package net.sorax.engine.utils;
 
-import net.sorax.engine.maths.Vector2f;
-
 import static org.lwjgl.opengl.GL11.*;
+import net.sorax.engine.maths.Vector2f;
 
 public class Camera {
 	

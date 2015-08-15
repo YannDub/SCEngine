@@ -15,7 +15,7 @@ import org.lwjgl.opengl.DisplayMode;
  *
  */
 
-public class Game {
+public class SCEGame {
 	
 	protected int width, height;
 	protected int scale;
@@ -27,7 +27,7 @@ public class Game {
 	/**
 	 * Constructor to create a new instance of a game
 	 */
-	public Game() {
+	public SCEGame() {
 		this.width = 800;
 		this.height = 400;
 		this.title = "Test";

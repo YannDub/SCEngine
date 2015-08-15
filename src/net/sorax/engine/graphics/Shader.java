@@ -3,9 +3,11 @@ package net.sorax.engine.graphics;
 import static org.lwjgl.opengl.GL11.*;
 import static org.lwjgl.opengl.GL20.*;
 
-import java.io.*;
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
 
-import org.lwjgl.util.vector.*;
+import org.lwjgl.util.vector.Vector3f;
 
 public class Shader {
 	
