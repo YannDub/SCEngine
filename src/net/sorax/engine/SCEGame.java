@@ -3,6 +3,7 @@ package net.sorax.engine;
 import static org.lwjgl.opengl.GL11.*;
 import net.sorax.engine.graphics.Texture;
 import net.sorax.engine.gui.Scene;
+import net.sorax.engine.utils.LWJGLNativesLoader;
 
 import org.lwjgl.LWJGLException;
 import org.lwjgl.openal.AL;
@@ -31,6 +32,7 @@ public class SCEGame {
 		this.width = 800;
 		this.height = 400;
 		this.title = "Test";
+		LWJGLNativesLoader.addLWJGLNative("natives/");
 	}
 	
 	/**
