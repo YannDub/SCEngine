@@ -85,7 +85,7 @@ public class SCEGame {
 		glViewport(0, 0, Display.getWidth(), Display.getHeight());
 		glMatrixMode(GL_PROJECTION);
 		glLoadIdentity();
-		glOrtho(0, width, height, 0, 1, -1);
+		glOrtho(0, width / scale, height / scale, 0, 1, -1);
 		glMatrixMode(GL_MODELVIEW);
 		
 		glEnable(GL_TEXTURE_2D);
