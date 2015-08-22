@@ -9,6 +9,7 @@ public class Camera {
 	
 	public Camera(Vector2f position) {
 		this.position = position;
+		glTranslatef(position.x, position.y, 0);
 	}
 	
 	public void translate(float x, float y) {

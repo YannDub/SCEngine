@@ -6,7 +6,7 @@ import net.sorax.engine.network.server.SCEServer;
 public abstract class Packet {
 	
 	private byte id;
-	private byte[] data;
+	protected byte[] data;
 	
 	public Packet(int id) {
 		this.id = (byte)id;
