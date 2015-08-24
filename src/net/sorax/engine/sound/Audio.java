@@ -43,7 +43,8 @@ public class Audio implements IAudio{
 
 	@Override
 	public int playAsMusic(float pitch, float gain, boolean loop) {
-		index = store.playAsSound(buffer, pitch, gain, loop);
+		store.playAsMusic(buffer, pitch, gain, loop);
+		this.index = 0;
 		return store.getSource(index);
 	}
 	
