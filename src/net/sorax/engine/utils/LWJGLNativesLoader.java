@@ -3,6 +3,7 @@ package net.sorax.engine.utils;
 import java.io.File;
 import java.lang.reflect.Field;
 
+
 public class LWJGLNativesLoader {
 	
 	public static boolean isWindows() {

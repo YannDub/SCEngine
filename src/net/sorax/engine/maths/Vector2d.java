@@ -72,4 +72,23 @@ public class Vector2d {
 		this.x *= scalar;
 		this.y *= scalar;
 	}
+	
+	public double length() {
+		return Math.sqrt(this.x * this.x + this.y * this.y);
+	}
+	
+	public void normalizeSelf() {
+		this.x /= length();
+		this.y /= length();
+	}
+	
+	public Vector2d normalize() {
+		return new Vector2d(this.x / length(), this.y / length());
+	}
+	
+	public double distance(Vector2d v) {
+		double x_c = (v.x - this.x) * (v.x - this.x);
+		double y_c = (v.y - this.y) * (v.y - this.y);
+		return Math.sqrt(x_c + y_c);
+	}
 }

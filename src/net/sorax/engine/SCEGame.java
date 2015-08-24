@@ -19,7 +19,7 @@ import org.lwjgl.opengl.DisplayMode;
 public class SCEGame {
 	
 	protected int width, height;
-	protected int scale;
+	protected int scale = 1;
 	protected String title;
 	protected boolean showFPS = false;
 	
