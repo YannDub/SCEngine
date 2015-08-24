@@ -4,13 +4,28 @@ import static org.lwjgl.opengl.GL11.*;
 
 public class Renderer {
 	
-	public static void renderBox(float x, float y, float width, float height, float r, float g, float b, float a) {
+	public static void renderFillBox(float x, float y, float width, float height, float r, float g, float b, float a) {
+		glColor4f(r, g, b, a);
 		glBegin(GL_QUADS);
-			glColor4f(r, g, b, a); glVertex2f(x, y);
-			glColor4f(r, g, b, a); glVertex2f(x + width, y);
-			glColor4f(r, g, b, a); glVertex2f(x + width, y + height);
-			glColor4f(r, g, b, a); glVertex2f(x, y + height);
+			glVertex2f(x, y);
+			glVertex2f(x + width, y);
+			glVertex2f(x + width, y + height);
+			glVertex2f(x, y + height);
 		glEnd();
+		glColor4f(1.0f, 1.0f, 1.0f, 1.0f);
+	}
+	
+	public static void renderBox(float x, float y, float width, float height, float r, float g, float b, float a, float lineWidth) {
+		glColor4f(r, g, b, a);
+		glLineWidth(lineWidth);
+		glBegin(GL_LINE_STRIP);
+			glVertex2f(x, y);
+			glVertex2f(x + width, y);
+			glVertex2f(x + width, y + height);
+			glVertex2f(x, y + height);
+			glVertex2f(x, y);
+		glEnd();
+		glColor4f(1.0f, 1.0f, 1.0f, 1.0f);
 	}
 	
 	public static void renderImage(Image image) {
