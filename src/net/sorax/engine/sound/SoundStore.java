@@ -160,14 +160,14 @@ public class SoundStore {
 	
 	public void pauseLoop() {
 		if(soundWorks && currentMusic != -1) {
-			setPaused(true);
+			paused = true;
 			alSourcePause(currentMusic);
 		}
 	}
 	
 	public void restartLoop() {
 		if(soundWorks && music && currentMusic != -1) {
-			setPaused(false);
+			paused = false;
 			alSourcePlay(currentMusic);
 		}
 	}
