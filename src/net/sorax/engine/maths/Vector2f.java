@@ -9,6 +9,8 @@ public class Vector2f {
 	
 	public float x, y;
 	
+	public static final Vector2f NULL = new Vector2f(0, 0);
+	
 	/**
 	 * The constructor of 2d vector
 	 * @param x The x position

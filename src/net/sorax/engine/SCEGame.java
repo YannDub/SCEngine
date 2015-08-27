@@ -18,7 +18,7 @@ import org.lwjgl.opengl.DisplayMode;
 
 public class SCEGame {
 	
-	protected int width, height;
+	protected static int width, height;
 	protected String title;
 	protected boolean showFPS = false;
 	
@@ -28,8 +28,8 @@ public class SCEGame {
 	 * Constructor to create a new instance of a game
 	 */
 	public SCEGame() {
-		this.width = 800;
-		this.height = 400;
+		width = 800;
+		height = 400;
 		this.title = "Test";
 		LWJGLNativesLoader.addLWJGLNative("natives/");
 	}
@@ -82,15 +82,6 @@ public class SCEGame {
 	 */
 	private void initGL() {
 		glViewport(0, 0, Display.getWidth(), Display.getHeight());
-		glMatrixMode(GL_PROJECTION);
-		glLoadIdentity();
-		glOrtho(0, width, height, 0, 1, -1);
-		glMatrixMode(GL_MODELVIEW);
-		
-		glEnable(GL_TEXTURE_2D);
-		
-		glEnable(GL_BLEND);
-		glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
 	}
 	
 	/**
@@ -136,9 +127,7 @@ public class SCEGame {
 	 * The main rendering method
 	 */
 	protected void render() {
-		this.initGL();
 		glClear(GL_COLOR_BUFFER_BIT);
-		
 		if(scene != null) scene.render();
 	}
 	
@@ -153,15 +142,15 @@ public class SCEGame {
 	 * Get the width of this game
 	 * @return the width
 	 */
-	public int getWidth() {
-		return this.width;
+	public static int getWidth() {
+		return width;
 	}
 	
 	/**
 	 * Get the height of this game
 	 * @return the height
 	 */
-	public int getHeight() {
-		return this.height;
+	public static int getHeight() {
+		return height;
 	}
 }
