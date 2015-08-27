@@ -63,8 +63,24 @@ public class Camera {
 		return this.position;
 	}
 	
+	public float getX() {
+		return this.position.x;
+	}
+	
+	public float getY() {
+		return this.position.y;
+	}
+	
 	public Vector2f getSize() {
 		return this.size;
+	}
+	
+	public float getWidth() {
+		return this.size.x;
+	}
+	
+	public float getHeight() {
+		return this.size.y;
 	}
 	
 	public void setZoomSpeed(float zoomSpeed) {
