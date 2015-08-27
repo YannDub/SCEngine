@@ -149,4 +149,28 @@ public class SCEGame {
 	protected void update() {
 		if(scene != null) scene.update();
 	}
+	
+	/**
+	 * Get the scale
+	 * @return the scale
+	 */
+	public int getScale() {
+		return this.scale;
+	}
+	
+	/**
+	 * Get the width of this game
+	 * @return the width
+	 */
+	public int getWidth() {
+		return this.width;
+	}
+	
+	/**
+	 * Get the height of this game
+	 * @return the height
+	 */
+	public int getHeight() {
+		return this.height;
+	}
 }
