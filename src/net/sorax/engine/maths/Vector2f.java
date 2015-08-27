@@ -91,4 +91,9 @@ public class Vector2f {
 		float y_c = (v.y - this.y) * (v.y - this.y);
 		return (float)Math.sqrt(x_c + y_c);
 	}
+	
+	public void lerp(Vector2f v, float time) {
+		this.x += (v.x - this.x) * time;
+		this.y += (v.y - this.y) * time;
+	}
 }

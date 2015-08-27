@@ -19,7 +19,6 @@ import org.lwjgl.opengl.DisplayMode;
 public class SCEGame {
 	
 	protected int width, height;
-	protected int scale = 1;
 	protected String title;
 	protected boolean showFPS = false;
 	
@@ -85,7 +84,7 @@ public class SCEGame {
 		glViewport(0, 0, Display.getWidth(), Display.getHeight());
 		glMatrixMode(GL_PROJECTION);
 		glLoadIdentity();
-		glOrtho(0, width / scale, height / scale, 0, 1, -1);
+		glOrtho(0, width, height, 0, 1, -1);
 		glMatrixMode(GL_MODELVIEW);
 		
 		glEnable(GL_TEXTURE_2D);
@@ -148,14 +147,6 @@ public class SCEGame {
 	 */
 	protected void update() {
 		if(scene != null) scene.update();
-	}
-	
-	/**
-	 * Get the scale
-	 * @return the scale
-	 */
-	public int getScale() {
-		return this.scale;
 	}
 	
 	/**

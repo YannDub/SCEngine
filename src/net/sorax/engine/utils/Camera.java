@@ -6,6 +6,7 @@ import net.sorax.engine.maths.Vector2f;
 public class Camera {
 	
 	private Vector2f position;
+	private float zoom = 0;
 	
 	public Camera(Vector2f position) {
 		this.position = position;
@@ -18,7 +19,16 @@ public class Camera {
 		this.position.y += y;
 	}
 	
+	public void zoom(float zoom) {
+		this.zoom += zoom;
+		glScalef(zoom, zoom, 0);
+	}
+	
 	public Vector2f getPosition() {
 		return this.position;
+	}
+	
+	public float getZoom() {
+		return this.zoom;
 	}
 }
