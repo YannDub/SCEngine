@@ -24,8 +24,8 @@ public class Sprite extends Image{
 	 * @param spriteH the height on the texture
 	 * @param frame The position on the texture
 	 */
-	public Sprite(Texture texture, float x, float y, float width, float height, float spriteW, float spriteH, int frame) {
-		super(texture, x, y, width, height);
+	public Sprite(Texture texture, float width, float height, float spriteW, float spriteH, int frame) {
+		super(texture, width, height);
 		this.frame = frame;
 		this.spriteW = spriteW;
 		this.spriteH = spriteH;
@@ -43,18 +43,8 @@ public class Sprite extends Image{
 	 * @param spriteH the height on the texture
 	 * @param frame The position on the texture
 	 */
-	public Sprite(String texture, float x, float y, float width, float height,  float spriteW, float spriteH, int frame) {
-		this(Texture.loadTexture(texture), x, y, width, height, spriteW, spriteH, frame);
-	}
-	
-	/**
-	 * Change the position of this sprite
-	 * @param x the x coordinate
-	 * @param y the y coordinate
-	 */
-	public void setPosition(float x, float y) {
-		this.x = x;
-		this.y = y;
+	public Sprite(String texture, float width, float height,  float spriteW, float spriteH, int frame) {
+		this(Texture.loadTexture(texture), width, height, spriteW, spriteH, frame);
 	}
 	
 	/**
@@ -84,8 +74,8 @@ public class Sprite extends Image{
 	/**
 	 * Draw this sprite
 	 */
-	public void render() {
-		Renderer.renderSprite(this);
+	public void render(float x, float y) {
+		Renderer.renderSprite(this, x, y);
 	}
 	
 	/**

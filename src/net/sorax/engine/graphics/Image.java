@@ -4,34 +4,29 @@ public class Image {
 	
 	protected Texture texture;
 	protected float width, height;
-	protected float x, y;
 	
-	public Image(Texture texture, float x, float y) {
-		this(texture, x, y, texture.getWidth(), texture.getHeight());
+	public Image(Texture texture) {
+		this(texture, texture.getWidth(), texture.getHeight());
 	}
 	
-	public Image(String texture, float x, float y, float width, float height) {
-		this(Texture.loadTexture(texture), x, y, width, height);
+	public Image(String texture, float width, float height) {
+		this(Texture.loadTexture(texture), width, height);
 	}
 
-	public Image(String texture, float x, float y) {
+	public Image(String texture) {
 		this.texture = Texture.loadTexture(texture);
 		this.width = this.texture.getWidth();
 		this.height = this.texture.getHeight();
-		this.x = x;
-		this.y = y;
 	}
 	
-	public Image(Texture texture, float x, float y, float width, float height) {
+	public Image(Texture texture, float width, float height) {
 		this.texture = texture;
 		this.width = width;
 		this.height = height;
-		this.x = x;
-		this.y = y;
 	}
 	
-	public void render() {
-		Renderer.renderImage(this);
+	public void render(float x, float y) {
+		Renderer.renderImage(this, x, y);
 	}
 	
 	public Texture getTexture() {
@@ -44,13 +39,5 @@ public class Image {
 	
 	public float getHeight() {
 		return this.height;
-	}
-	
-	public float getX() {
-		return this.x;
-	}
-	
-	public float getY() {
-		return this.y;
 	}
 }

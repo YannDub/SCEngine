@@ -28,9 +28,7 @@ public class Renderer {
 		glColor4f(1.0f, 1.0f, 1.0f, 1.0f);
 	}
 	
-	public static void renderImage(Image image) {
-		float x = image.getX();
-		float y = image.getY();
+	public static void renderImage(Image image, float x, float y) {
 		float w = image.getWidth();
 		float h = image.getHeight();
 		Texture texture = image.getTexture();
@@ -48,9 +46,7 @@ public class Renderer {
 		texture.unbind();
 	}
 	
-	public static void renderSprite(Sprite sprite) {
-		float x = sprite.getX();
-		float y = sprite.getY();
+	public static void renderSprite(Sprite sprite, float x, float y) {
 		float w = sprite.getWidth();
 		float h = sprite.getHeight();
 		float angle = sprite.getAngle();

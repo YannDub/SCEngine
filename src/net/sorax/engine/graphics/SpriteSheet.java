@@ -23,7 +23,7 @@ public class SpriteSheet {
 		for(int j = 0; j < nbSpriteHeight; j++) {
 			for(int i = 0; i < nbSpriteWidth; i++) {
 				int frame = i + j * nbSpriteWidth;
-				this.sprites[frame] = new Sprite(texture, 0, 0, renderWidth, renderHeight, spriteWidth, spriteHeight, frame);
+				this.sprites[frame] = new Sprite(texture, renderWidth, renderHeight, spriteWidth, spriteHeight, frame);
 			}
 		}
 		

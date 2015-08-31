@@ -20,7 +20,7 @@ public class NineSprite extends Image {
 //		int spriteWidth = texture.getWidth() / 3;
 //		int spriteHeight = texture.getHeight() / 3;
 		for(int i = 0; i < 9; i++) {
-			this.sprites[i] = new Sprite(texture, x, y, nineWidth, nineHeight, 3, 3, i);
+			this.sprites[i] = new Sprite(texture, nineWidth, nineHeight, 3, 3, i);
 		}
 	}
 	
@@ -30,7 +30,7 @@ public class NineSprite extends Image {
 		int spriteWidth = (int) (sprite.getSpriteWidth()) / 3;
 		int spriteHeight = (int) (sprite.getSpriteHeight()) / 3;
 		for(int i = 0; i < 9; i++) {
-			this.sprites[i] = new Sprite(texture, x, y, nineWidth, nineHeight, spriteWidth, spriteHeight, i);
+			this.sprites[i] = new Sprite(texture, nineWidth, nineHeight, spriteWidth, spriteHeight, i);
 		}
 	}
 	
