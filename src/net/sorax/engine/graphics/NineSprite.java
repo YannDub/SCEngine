@@ -14,8 +14,8 @@ public class NineSprite extends Image {
 	
 	private Sprite[] sprites;
 	
-	public NineSprite(Texture texture, float x, float y, float nineWidth, float nineHeight) {
-		super(texture, x, y);
+	public NineSprite(Texture texture, float nineWidth, float nineHeight) {
+		super(texture);
 		this.sprites = new Sprite[9];
 //		int spriteWidth = texture.getWidth() / 3;
 //		int spriteHeight = texture.getHeight() / 3;
@@ -24,7 +24,7 @@ public class NineSprite extends Image {
 		}
 	}
 	
-	public NineSprite(Sprite sprite, float x, float y, float nineWidth, float nineHeight) {
+	public NineSprite(Sprite sprite, float nineWidth, float nineHeight) {
 		super(sprite.getTexture(), sprite.getSpriteWidth(), sprite.getSpriteHeight());
 		this.sprites = new Sprite[9];
 		int spriteWidth = (int) (sprite.getSpriteWidth()) / 3;
