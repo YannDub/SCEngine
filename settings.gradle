@@ -1,0 +1,3 @@
+rootProject.name = 'SCEngine'
+include 'SCEngine-Example'
+
