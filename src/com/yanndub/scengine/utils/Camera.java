@@ -8,7 +8,7 @@ import com.yanndub.scengine.maths.Vector2f;
 public class Camera {
 	
 	private Vector2f position;
-	private Vector2f size;
+	private final Vector2f size;
 	private float zoom = 1, targetZoom = 1;
 	private float zoomSpeed = 10;
 	private float moveSpeed = 1;
@@ -28,8 +28,8 @@ public class Camera {
 	
 	public void translate(float x, float y) {
 		glTranslatef(-x, -y, 0);
-		this.position.x += x * moveSpeed;
-		this.position.y += y * moveSpeed;
+		this.position.x += x * this.moveSpeed;
+		this.position.y += y * this.moveSpeed;
 	}
 	
 	public void render() {

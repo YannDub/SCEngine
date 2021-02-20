@@ -4,7 +4,6 @@ import static org.lwjgl.opengl.GL11.*;
 
 import com.yanndub.scengine.graphics.Window;
 import com.yanndub.scengine.gui.Scene;
-import com.yanndub.scengine.utils.LWJGLNativesLoader;
 import com.yanndub.scengine.graphics.Texture;
 
 /**
@@ -18,7 +17,6 @@ public class SCEGame {
 	protected final int width, height;
 	protected final String title;
 	private final Window window;
-	protected boolean showFPS = false;
 	
 	protected Scene scene;
 	
@@ -30,7 +28,6 @@ public class SCEGame {
 		height = 400;
 		this.title = "Test";
 		this.window = new Window(this.title, this.width, this.height);
-//		LWJGLNativesLoader.addLWJGLNative("natives/");
 	}
 	
 	/**
