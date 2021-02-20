@@ -31,19 +31,13 @@ public class SCEGame {
 	}
 	
 	/**
-	 * Initialize the game
-	 */
-	protected void init() {
-		if(scene != null) this.scene.init();
-	}
-	
-	/**
 	 * Set a scene to the game, for exemple change a menu scene to a game scene
 	 * @param scene The new scene of the game
 	 */
 	public void setScene(Scene scene) {
 		if(this.scene != null) scene.dispose();
 		this.scene = scene;
+		this.scene.init();
 	}
 	
 	/**
@@ -60,7 +54,6 @@ public class SCEGame {
 	protected void stop() {
 		Texture.clearAllTexture();
 		if(scene != null) this.scene.dispose();
-		this.window.close();
 //		AL.destroy();
 	}
 	
@@ -68,8 +61,10 @@ public class SCEGame {
 	 * The game loop
 	 */
 	private void run() {
-		this.init();
-		this.window.loop();
+		while(!this.window.isCloseRequested()) {
+			this.window.render(this.scene);
+			this.scene.update();
+		}
 
 		stop();
 	}
@@ -78,8 +73,7 @@ public class SCEGame {
 	 * The main rendering method
 	 */
 	protected void render() {
-		glClear(GL_COLOR_BUFFER_BIT);
-		if(scene != null) scene.render();
+		if(this.scene != null) this.scene.render();
 	}
 	
 	/**
@@ -103,5 +97,9 @@ public class SCEGame {
 	 */
 	public int getHeight() {
 		return height;
+	}
+
+	public Window getWindow() {
+		return this.window;
 	}
 }

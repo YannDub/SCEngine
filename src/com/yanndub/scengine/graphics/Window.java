@@ -1,5 +1,6 @@
 package com.yanndub.scengine.graphics;
 
+import com.yanndub.scengine.gui.Scene;
 import org.lwjgl.glfw.GLFWErrorCallback;
 import org.lwjgl.glfw.GLFWVidMode;
 import org.lwjgl.opengl.GL;
@@ -16,13 +17,11 @@ public class Window {
     private final int width, height;
     private final String title;
     private long window;
-    private boolean isCloseRequested;
 
     public Window(final String title, final int width, final int height) {
         this.width = width;
         this.height = height;
         this.title = title;
-        this.isCloseRequested = false;
     }
 
     public void init() {
@@ -58,35 +57,31 @@ public class Window {
                 throw new RuntimeException("No vidMode for the GLFW application");
             }
 
-            glfwSetWindowPos(this.window, (vidMode.width() - pWidth.get(0)) / 2, vidMode.height() - pHeight.get(0) / 2);
+            glfwSetWindowPos(this.window, (vidMode.width() - pWidth.get(0)) / 2, (vidMode.height() - pHeight.get(0)) / 2);
         }
 
         glfwMakeContextCurrent(this.window);
         glfwSwapInterval(1);
         glfwShowWindow(window);
+
+        GL.createCapabilities();
     }
 
-    public void loop() {
-        GL.createCapabilities();
-
-        glClearColor(1.0f, 0.0f, 0.0f, 0.0f);
-
-        while (!glfwWindowShouldClose(this.window)) {
-            glClear(GL_COLOR_BUFFER_BIT);
-
-            glfwSwapBuffers(this.window);
-
-            glfwPollEvents();
+    public void render(final Scene scene) {
+        glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+        if (scene != null) {
+            scene.render();
         }
+        glfwSwapBuffers(this.window);
+        glfwPollEvents();
     }
 
     public void close() {
         glfwSetWindowShouldClose(window, true);
-        this.isCloseRequested = true;
     }
 
     public boolean isCloseRequested() {
-        return this.isCloseRequested;
+        return glfwWindowShouldClose(this.window);
     }
 
     public int getWidth() {
